@@ -18,7 +18,6 @@ data "aws_ssm_parameter" "this" {
 # Instance
 ################################################################################
 
-# Delete this comment please.
 resource "aws_instance" "this" {
   count = local.create && !var.ignore_ami_changes && !var.create_spot_instance ? 1 : 0
 
