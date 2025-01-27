@@ -166,13 +166,13 @@ resource "aws_instance" "this" {
     }
   }
 
-  dynamic "instance_market_options" {
-    for_each = var.instance_market_options != null ? [var.instance_market_options] : []
-
-    content {
-      market_type = instance_market_options.value.market_type != null ? instance_market_options.value.market_type : error("market_type must be specified in instance_market_options")
-    }
-  }
+#  dynamic "instance_market_options" {
+#    for_each = var.instance_market_options != null ? [var.instance_market_options] : []
+#
+#    content {
+#      market_type = instance_market_options.value.market_type != null ? instance_market_options.value.market_type : error("market_type must be specified in instance_market_options")
+#    }
+#  }
 
   enclave_options {
     enabled = var.enclave_options_enabled
