@@ -170,7 +170,7 @@ resource "aws_instance" "this" {
     for_each = var.instance_market_options != null ? [var.instance_market_options] : []
 
     content {
-      market_type = instance_market_options.value.market_type
+      market_type = try(instance_market_options.value.market_type, {})
     }
   }
 
