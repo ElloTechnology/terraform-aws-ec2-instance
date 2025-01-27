@@ -170,7 +170,7 @@ resource "aws_instance" "this" {
     for_each = var.instance_market_options != null ? [var.instance_market_options] : []
 
     content {
-      market_type = instance_market_options.market_type != null ? instance_market_options.market_type : error("market_type must be specified in instance_market_options")
+      market_type = instance_market_options.value.market_type != null ? instance_market_options.value.market_type : error("market_type must be specified in instance_market_options")
     }
   }
 
